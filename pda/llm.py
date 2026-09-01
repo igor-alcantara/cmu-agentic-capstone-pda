@@ -27,9 +27,11 @@ class AnthropicLLM:
         self._client = anthropic.Anthropic(api_key=api_key or None)
         self._model = model
         self._budget = budget
+        self.calls: list[tuple[str, str, str]] = []  # (task, system, user), for the injection audit
 
     def complete(self, task: str, system: str, user: str, max_tokens: int = 2000) -> str:
         self._budget.check()
+        self.calls.append((task, system, user))
         response = self._client.messages.create(
             model=self._model,
             max_tokens=max_tokens,

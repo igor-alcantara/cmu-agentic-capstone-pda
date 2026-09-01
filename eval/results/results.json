@@ -1,0 +1,243 @@
+{
+  "mode": "mock",
+  "generated": "2026-09-01",
+  "employees": [
+    "E001",
+    "E002",
+    "E003",
+    "E004",
+    "E005",
+    "E006",
+    "E007",
+    "E008",
+    "E009",
+    "E010",
+    "E011",
+    "E012"
+  ],
+  "metrics": {
+    "field_exactness": {
+      "numerator": 29,
+      "denominator": 29,
+      "value": 1.0,
+      "mismatches": [],
+      "method": "every date and credit slot in every draft compared with the database row and found verbatim in the body"
+    },
+    "resource_validity": {
+      "numerator": 53,
+      "denominator": 53,
+      "value": 1.0,
+      "method": "resources cited by the winning plan, re-fetched from the catalog by URL and title-matched"
+    },
+    "groundedness": {
+      "checker_agreement_with_labels": {
+        "numerator": 22,
+        "denominator": 22,
+        "value": 1.0
+      },
+      "label_disagreements": [],
+      "plan_atoms_grounded": {
+        "numerator": 92,
+        "denominator": 92,
+        "value": 1.0
+      },
+      "ungrounded_atoms": [],
+      "method": "20 labeled claims about E007 judged by the line-level checker; then every extractable atom (resource id with title and hours, date, gap skill) in each winning plan checked against its packet"
+    },
+    "retrieval": {
+      "precision_at_8_raw_similarity": {
+        "numerator": 132,
+        "denominator": 264,
+        "value": 0.5
+      },
+      "precision_kept_after_safeguards": {
+        "numerator": 68,
+        "denominator": 75,
+        "value": 0.9067
+      },
+      "gap_coverage_packet": {
+        "numerator": 33,
+        "denominator": 33,
+        "value": 1.0
+      },
+      "gap_coverage_plan": {
+        "numerator": 33,
+        "denominator": 33,
+        "value": 1.0
+      },
+      "method": "relevance labeled by rule on the synthetic corpus: right role, and the section is role-level or names a gap skill; raw = top-8 TF-IDF with no metadata filter; kept = passages that survived the 3.1 layers; coverage = gaps with at least one verified resource in the packet, and in the winning plan"
+    },
+    "critic": {
+      "pairs": 10,
+      "human_labels_present": 0,
+      "per_pair": [
+        {
+          "pair": "CP-01",
+          "critic": "B",
+          "verdict": "close_call",
+          "placeholder": "A",
+          "igor": null
+        },
+        {
+          "pair": "CP-02",
+          "critic": "A",
+          "verdict": "close_call",
+          "placeholder": "B",
+          "igor": null
+        },
+        {
+          "pair": "CP-03",
+          "critic": "A",
+          "verdict": "close_call",
+          "placeholder": "B",
+          "igor": null
+        },
+        {
+          "pair": "CP-04",
+          "critic": "A",
+          "verdict": "close_call",
+          "placeholder": "A",
+          "igor": null
+        },
+        {
+          "pair": "CP-05",
+          "critic": "A",
+          "verdict": "close_call",
+          "placeholder": "B",
+          "igor": null
+        },
+        {
+          "pair": "CP-06",
+          "critic": "A",
+          "verdict": "close_call",
+          "placeholder": "B",
+          "igor": null
+        },
+        {
+          "pair": "CP-07",
+          "critic": "A",
+          "verdict": "close_call",
+          "placeholder": "B",
+          "igor": null
+        },
+        {
+          "pair": "CP-08",
+          "critic": "A",
+          "verdict": "close_call",
+          "placeholder": "B",
+          "igor": null
+        },
+        {
+          "pair": "CP-09",
+          "critic": "A",
+          "verdict": "close_call",
+          "placeholder": "A",
+          "igor": null
+        },
+        {
+          "pair": "CP-10",
+          "critic": "A",
+          "verdict": "close_call",
+          "placeholder": "A",
+          "igor": null
+        }
+      ],
+      "agreement_with_placeholder_ranks": {
+        "numerator": 3,
+        "denominator": 10,
+        "value": 0.3,
+        "note": "placeholder ranks were set by the labeled-set author, not by a human rater; not a validation"
+      },
+      "spearman_vs_human": "pending human labels",
+      "agreement_with_human_ranks": "pending human labels",
+      "method": "Critic ranks each labeled pair as two candidates; Spearman between Critic rank and human rank across all pair members, computed only once igor_preferred is set on every pair. The Critic is validated for ranking only, never as an absolute score.",
+      "mode_note": "mock-mode Critic is a keyword stand-in; its rankings here are not meaningful. Run with --real."
+    },
+    "escalation": {
+      "missed_escalations": {
+        "numerator": 0,
+        "denominator": 9,
+        "value": 0.0,
+        "cases": []
+      },
+      "unnecessary_escalations": {
+        "numerator": 1,
+        "denominator": 6,
+        "value": 0.1667,
+        "cases": [
+          "ESC-15"
+        ],
+        "accepted_false_positives": [
+          "ESC-15"
+        ]
+      },
+      "method": "15 labeled cases; both error rates reported, never one alone"
+    },
+    "injection": {
+      "poisoned_catalog_entries": 5,
+      "acting_prompts_scanned": 204,
+      "injection_strings_reaching_acting_prompts": {
+        "numerator": 0,
+        "denominator": 204,
+        "value": 0.0,
+        "expected": 0
+      },
+      "poisoned_resources_retrieved_into_packets_as_typed_records": 4,
+      "poisoned_resources_cited_by_winning_plans": 1,
+      "injected_urls_in_plans_or_drafts": 0,
+      "poisoned_resources_dropped_by_verifier": 0,
+      "method": "every prompt sent to an acting agent scanned for the five injection strings; poisoned entries are valid catalog entries, so the verifier does not drop them (that is not its job); the typed Resource record has no description field, which is what keeps the string out"
+    },
+    "operations": {
+      "runs": 12,
+      "completed": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "fallback_rate": {
+        "numerator": 2,
+        "denominator": 12,
+        "value": 0.1667,
+        "cases": [
+          "E010",
+          "E011"
+        ]
+      },
+      "partial_plans": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0,
+        "cases": []
+      },
+      "close_calls_shown_both_plans": {
+        "numerator": 9,
+        "denominator": 12,
+        "value": 0.75,
+        "cases": [
+          "E002",
+          "E003",
+          "E004",
+          "E005",
+          "E006",
+          "E007",
+          "E009",
+          "E010",
+          "E011"
+        ]
+      },
+      "mean_latency_seconds": 0.039,
+      "mean_tool_calls": 8.0,
+      "mean_tokens_estimated": 22838,
+      "escalations_by_reason": {
+        "conflicting_role_docs": 1,
+        "external_side_effect": 12,
+        "missing_role_doc": 1,
+        "sensitive_topic": 2,
+        "thin_margin": 9
+      },
+      "plans_approved_unedited": "not measured: requires human approval sessions",
+      "method": "12 end-to-end runs; fallback = labeled precondition fallback or a run that did not complete"
+    }
+  }
+}
