@@ -41,11 +41,11 @@
   },
   {
     "case_id": "ESC-06",
-    "description": "Gathering was retried once (the cap) after the Resource Scout returned nothing.",
-    "signals": {"phase": "gather", "employee_request": "Learn Kafka basics.", "retry_count": 1, "retry_cap": 1},
+    "description": "Gathering was retried once (the cap) and the Resource Scout still returned nothing.",
+    "signals": {"phase": "gather", "employee_request": "Learn Kafka basics.", "retry_count": 1, "retry_cap": 1, "gathering_failed": true},
     "expected_escalate": true,
     "expected_reason": "retry_cap",
-    "why": "Deterministic. One retry is the recovery the ReAct loop is allowed; reaching the cap means the loop stops trying and says so."
+    "why": "Deterministic. One retry is the recovery the ReAct loop is allowed; if the step is still failed at the cap, the packet is partial and a person should know. A retry that succeeds does not escalate (see ESC-13)."
   },
   {
     "case_id": "ESC-07",
@@ -98,10 +98,10 @@
   {
     "case_id": "ESC-13",
     "description": "Cost and time both close to their caps after a successful single pass.",
-    "signals": {"phase": "synthesize", "employee_request": "Build depth in Azure.", "retry_count": 0, "cost_usd": 1.9, "cost_cap_usd": 2.0, "elapsed_seconds": 280, "wall_cap_seconds": 300},
+    "signals": {"phase": "synthesize", "employee_request": "Build depth in Azure.", "retry_count": 1, "retry_cap": 1, "gathering_failed": false, "cost_usd": 1.9, "cost_cap_usd": 2.0, "elapsed_seconds": 280, "wall_cap_seconds": 300},
     "expected_escalate": false,
     "expected_reason": null,
-    "why": "Tempting: everything is near a threshold. Nothing crossed one. Near misses are logged in the run log, which is where they belong."
+    "why": "Tempting: everything is near a threshold, and the one allowed retry was used. Nothing crossed a cap and the retry succeeded, so the packet is whole. Near misses are logged in the run log, which is where they belong."
   },
   {
     "case_id": "ESC-14",

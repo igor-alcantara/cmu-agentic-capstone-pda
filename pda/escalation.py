@@ -42,6 +42,7 @@ class Signals(BaseModel):
     stale_after_days: int = 45
     retry_count: int = 0
     retry_cap: int = 1
+    gathering_failed: bool = False  # a gathering step is still failed after the retries
     cost_usd: float = 0.0
     cost_cap_usd: float = 2.0
     elapsed_seconds: float = 0.0
@@ -79,9 +80,9 @@ def evaluate(s: Signals) -> list[EscalationEvent]:
     if s.snapshot_age_days > s.stale_after_days:
         events.append(EscalationEvent(tier="deterministic", reason="stale_snapshot", phase=ph,
                                       detail=f"data snapshot is {s.snapshot_age_days} days old (limit {s.stale_after_days})"))
-    if s.retry_count >= s.retry_cap and s.retry_count > 0:
+    if s.gathering_failed and s.retry_count >= s.retry_cap:
         events.append(EscalationEvent(tier="deterministic", reason="retry_cap", phase=ph,
-                                      detail=f"gathering retried {s.retry_count} time(s), cap {s.retry_cap}"))
+                                      detail=f"gathering still failed after {s.retry_count} retry(ies), cap {s.retry_cap}; packet is partial"))
     if s.cost_usd > s.cost_cap_usd:
         events.append(EscalationEvent(tier="deterministic", reason="cost_threshold", phase=ph,
                                       detail=f"estimated cost {s.cost_usd:.2f} USD over cap {s.cost_cap_usd:.2f}"))

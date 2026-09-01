@@ -54,6 +54,29 @@ def keyword_overlap_checker(query: str, chunk: RoleDocChunk) -> bool:
     return len(q & _words(chunk.section + " " + chunk.text)) >= min(2, len(q))
 
 
+def make_rare_term_checker(index: RoleDocIndex) -> RelevanceChecker:
+    """Mock-mode relevance with a little more discrimination than raw overlap:
+    at least one of the query's three rarest content words (by chunk frequency
+    in the index) must appear in the passage, plus the overlap rule. A passage
+    about Airflow does not pass a Spark query just because both say 'gap'.
+    This is a stand-in for the per-passage model call in real mode, not a
+    claim about retrieval quality."""
+    df: dict[str, int] = {}
+    for c in index.chunks:
+        for w in _words(c.section + " " + c.text):
+            df[w] = df.get(w, 0) + 1
+
+    def check(query: str, chunk: RoleDocChunk) -> bool:
+        if not keyword_overlap_checker(query, chunk):
+            return False
+        q = sorted((w for w in _words(query) if w in df), key=lambda w: df[w])
+        if not q:
+            return False
+        return bool(set(q[:3]) & _words(chunk.section + " " + chunk.text))
+
+    return check
+
+
 def relevance_check(query: str, chunks: list[RoleDocChunk], checker: RelevanceChecker) -> list[RoleDocChunk]:
     out = []
     for c in chunks:

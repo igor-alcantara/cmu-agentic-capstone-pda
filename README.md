@@ -4,7 +4,7 @@ A multi-agent personal assistant that builds a grounded, verified, approval-gate
 
 Capstone project for the CMU Agentic AI Program, by Igor Alcantara. All data is synthetic.
 
-**Status: foundations.** The typed models, state store, guardrails, retrieval safeguards, escalation rules, prompts, synthetic data generator, and labeled evaluation sets are in place and tested. The gathering agents, Orchestrator ReAct loop, Tree-of-Thought synthesis, CLI, and evaluation harness are next. This README will be completed with the full walkthrough when they land.
+**Status: gathering phases complete.** The typed models, state store, guardrails, retrieval safeguards, escalation rules, prompts, synthetic data generator, and labeled evaluation sets are in place and tested. The three gathering agents and the Orchestrator ReAct loop run end to end in mock mode through the frozen packet, including a scripted failure the loop notices and retries once. Tree-of-Thought synthesis, drafting with the confirm gate, the CLI, and the evaluation harness are next. This README will be completed with the full walkthrough when they land.
 
 ## Quickstart (so far)
 
@@ -27,10 +27,12 @@ pda/
   llm.py                 Anthropic client wrapper + deterministic MockLLM, both budget-charged
   state.py               shared state store with freeze() and the JSONL run log
   prompts.py             every prompt sent to a model, plus the typed-only packet renderer
+  mock_handlers.py       deterministic stand-ins per model task for keyless runs
+  orchestrator.py        the ReAct loop; phase order enforced in code, JSONL run log, memory
   escalation.py          categorical, deterministic, classifier, and judgment triggers
   guardrails/            each module's docstring names the failure it removes
   retrieval/             TF-IDF index over role docs + the checkpoint 3.1 safeguards
-  agents/                resource_scout.py (others follow)
+  agents/                profile_analyst, context_researcher, resource_scout (planner, critic follow)
 data/
   build_synthetic.py     seeded generator for everything below
   pda.db                 SQLite standing in for Snowflake
