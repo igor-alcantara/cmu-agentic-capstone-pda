@@ -57,8 +57,9 @@ class MockLLM:
         self._handlers: dict[str, MockHandler] = {}
         self.calls: list[tuple[str, str, str]] = []  # (task, system, user)
 
-    def register(self, task: str, handler: MockHandler) -> None:
-        self._handlers[task] = handler
+    def register(self, task: str, handler: MockHandler, override: bool = True) -> None:
+        if override or task not in self._handlers:
+            self._handlers[task] = handler
 
     def complete(self, task: str, system: str, user: str, max_tokens: int = 2000) -> str:
         self._budget.check()

@@ -4,7 +4,7 @@ A multi-agent personal assistant that builds a grounded, verified, approval-gate
 
 Capstone project for the CMU Agentic AI Program, by Igor Alcantara. All data is synthetic.
 
-**Status: gathering phases complete.** The typed models, state store, guardrails, retrieval safeguards, escalation rules, prompts, synthetic data generator, and labeled evaluation sets are in place and tested. The three gathering agents and the Orchestrator ReAct loop run end to end in mock mode through the frozen packet, including a scripted failure the loop notices and retries once. Tree-of-Thought synthesis, drafting with the confirm gate, the CLI, and the evaluation harness are next. This README will be completed with the full walkthrough when they land.
+**Status: the system runs end to end.** All six agents, the four phases, the guardrails, the escalation tiers, the confirm gate, and the CLI are in place and tested in mock mode. The evaluation harness, sample run artifacts, and the full README walkthrough are next.
 
 ## Quickstart (so far)
 
@@ -14,9 +14,10 @@ python -m venv .venv
 pip install -r requirements.txt
 python data/build_synthetic.py --seed 42
 pytest -q
+python -m pda.cli --employee E007 --mock
 ```
 
-No API key is needed for anything above.
+No API key is needed for anything above. The last command prints the ReAct trace, the chosen plan (and the runner-up when the Critic calls it a close call), then asks you to approve each drafted action. Approved actions are written to `outbox/`; rejected ones are remembered in `data/memory/`. Add `--auto-approve-none` to run headless. For real mode, copy `.env.example` to `.env`, add your key, and drop `--mock`.
 
 ## Repository map
 
@@ -29,10 +30,13 @@ pda/
   prompts.py             every prompt sent to a model, plus the typed-only packet renderer
   mock_handlers.py       deterministic stand-ins per model task for keyless runs
   orchestrator.py        the ReAct loop; phase order enforced in code, JSONL run log, memory
+  tot.py                 beam search (2/3/3): hard checks in code, then the Critic ranks survivors
+  drafting.py            template drafts with code-filled slots; execute() runs only with a token
+  cli.py                 entry point with the approve/reject prompt
   escalation.py          categorical, deterministic, classifier, and judgment triggers
   guardrails/            each module's docstring names the failure it removes
   retrieval/             TF-IDF index over role docs + the checkpoint 3.1 safeguards
-  agents/                profile_analyst, context_researcher, resource_scout (planner, critic follow)
+  agents/                profile_analyst, context_researcher, resource_scout, planner, critic
 data/
   build_synthetic.py     seeded generator for everything below
   pda.db                 SQLite standing in for Snowflake

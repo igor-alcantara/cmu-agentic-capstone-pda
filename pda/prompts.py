@@ -124,12 +124,13 @@ Hard rules, because code will reject a candidate that breaks them:
 - Every skill gap in the packet is addressed somewhere.
 - Cite resources only by the ids listed in the packet. Do not describe resources that are not listed.
 - Weekly hours never exceed the employee's stated limit.
+- The full plan fits within 26 weeks at those weekly hours. If the resources do not fit, choose fewer or shorter ones; do not stretch the hours.
 - Do not repeat anything the employee has previously rejected.
-- Never write a date, credit count, or cost figure yourself; refer to them as they appear in the packet.
+- Never write a date, credit count, or cost figure yourself; refer to them as they appear in the packet. Give the plan's length in weeks and code will set the dates.
 - Do not mention performance ratings, promotion, or compensation. Those are out of scope.
 
 Return a JSON array of exactly N candidates, each an object:
-{"content": "<the candidate, as prose a person would read>", "gaps_addressed": ["<skill>", ...], "resources_cited": ["<resource id>", ...], "weekly_hours": <number>}
+{"content": "<the candidate, as prose a person would read>", "gaps_addressed": ["<skill>", ...], "resources_cited": ["<resource id>", ...], "weekly_hours": <number>, "weeks": <integer, required at depth 3>}
 Nothing outside the JSON."""
 
 

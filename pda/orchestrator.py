@@ -34,7 +34,7 @@ from pda.retrieval.index import RoleDocIndex
 from pda.state import StateStore
 
 GATHER = ("run_profile_analysis", "run_context_research", "run_resource_scout")
-Synthesizer = Callable[[ContextPacket, LLM, Budget, StateStore], PlanResult]
+Synthesizer = Callable[[ContextPacket, LLM, Budget, StateStore, date], PlanResult]
 Drafter = Callable[[ContextPacket, PlanResult, date], list[DraftAction]]
 
 
@@ -177,7 +177,7 @@ class Orchestrator:
                     f"{len(p.resources)} resources, {len(self.escalations)} escalation(s) so far")
         if action == "synthesize_plan":
             assert self.synthesizer is not None
-            self.plan = self.synthesizer(self.store.view(), self.llm, self.budget, self.store)
+            self.plan = self.synthesizer(self.store.view(), self.llm, self.budget, self.store, self.today)
             self._escalate("synthesize")
             w = self.plan.winner
             return (f"plan {self.plan.status}; winner {w.branch_id if w else 'none'}; "
