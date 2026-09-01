@@ -69,7 +69,8 @@ def make_rare_term_checker(index: RoleDocIndex) -> RelevanceChecker:
     def check(query: str, chunk: RoleDocChunk) -> bool:
         if not keyword_overlap_checker(query, chunk):
             return False
-        q = sorted((w for w in _words(query) if w in df), key=lambda w: df[w])
+        # deterministic tie-break on the word itself; a set's order depends on the hash seed
+        q = sorted((w for w in _words(query) if w in df), key=lambda w: (df[w], w))
         if not q:
             return False
         return bool(set(q[:3]) & _words(chunk.section + " " + chunk.text))

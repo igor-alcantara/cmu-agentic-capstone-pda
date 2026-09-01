@@ -9,7 +9,7 @@ Generated 2026-09-01.
 | Groundedness checker agreement with 22 labeled claims | 22/22 = 1.000 |
 | Groundedness of extractable atoms in winning plans | 92/92 = 1.000 |
 | Retrieval precision@8, raw similarity, no metadata filter | 132/264 = 0.500 |
-| Retrieval precision of passages kept after the 3.1 safeguards | 68/75 = 0.907 |
+| Retrieval precision of passages kept after the 3.1 safeguards | 66/75 = 0.880 |
 | Gap coverage in packet (a verified resource per gap) | 33/33 = 1.000 |
 | Gap coverage in winning plan | 33/33 = 1.000 |
 | Missed escalations on labeled cases | 0/9 = 0.000 |

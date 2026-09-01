@@ -51,9 +51,9 @@
         "value": 0.5
       },
       "precision_kept_after_safeguards": {
-        "numerator": 68,
+        "numerator": 66,
         "denominator": 75,
-        "value": 0.9067
+        "value": 0.88
       },
       "gap_coverage_packet": {
         "numerator": 33,
@@ -228,7 +228,7 @@
       },
       "mean_latency_seconds": 0.039,
       "mean_tool_calls": 8.0,
-      "mean_tokens_estimated": 22838,
+      "mean_tokens_estimated": 23577,
       "escalations_by_reason": {
         "conflicting_role_docs": 1,
         "external_side_effect": 12,

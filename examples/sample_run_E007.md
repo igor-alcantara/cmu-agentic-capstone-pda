@@ -73,4 +73,4 @@ Rejected candidates and why:
 
 ## Budget
 
-`{'tool_calls': 8, 'tokens': 24465, 'elapsed_seconds': 0.05}`
+`{'tool_calls': 8, 'tokens': 24465, 'elapsed_seconds': 0.03}`
