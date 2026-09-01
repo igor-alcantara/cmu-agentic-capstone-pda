@@ -1,0 +1,87 @@
+{
+  "_status": "PLACEHOLDER RANKS. 'placeholder_preferred' was set by the author of the labeled set, not by Igor. Until 'igor_preferred' is filled in for every pair, the Critic rank-correlation metric is reported as pending human labels. Never present the placeholder as a human label.",
+  "_employee": "E007, Data Engineer. Gaps: Snowflake 3 to 4, Apache Spark 2 to 3. SQL at 5, above role. SnowPro Core expires 2026-10-01 with 18 of 30 renewal credits. Weekly limit 5 hours. Previously rejected: Saturday study blocks, Talend certification track. Previously accepted: pairing sessions with the platform team on Snowflake performance.",
+  "_instructions": "For each pair, both candidates already pass the hard checks (every gap addressed, verified resources only, hours within limit). Pick the one you would rather receive. Set igor_preferred to 'A' or 'B'.",
+  "pairs": [
+    {
+      "pair_id": "CP-01",
+      "A": "Weeks 1 to 4: Snowflake certification preparation path, 4 hours a week, aimed at earning the 12 missing renewal credits before the October expiry. Weeks 5 to 10: Apache Spark course, 4 hours a week, with the platform team pairing sessions continuing on Snowflake performance. Week 11: Spark hands-on lab, 5 hours.",
+      "B": "Weeks 1 to 6: Apache Spark course and lab, 5 hours a week, because Spark is the larger gap and the next project needs it. Weeks 7 to 10: Snowflake certification preparation, 4 hours a week, then renew.",
+      "placeholder_preferred": "A",
+      "igor_preferred": null,
+      "note": "B defers the renewal past the expiry date. A sequences the hard deadline first and keeps the accepted pairing sessions."
+    },
+    {
+      "pair_id": "CP-02",
+      "A": "Alternate weeks between Snowflake and Spark for twelve weeks, 5 hours each week, so neither skill goes cold. Use the certification prep path for Snowflake and the course plus lab for Spark.",
+      "B": "Weeks 1 to 4 on Snowflake certification prep at 4 hours, then weeks 5 to 12 on Spark at 5 hours, course first, then lab. Renewal credits are complete by week 4, ahead of the expiry.",
+      "placeholder_preferred": "B",
+      "igor_preferred": null,
+      "note": "Alternating weeks sounds balanced but spreads the renewal across the deadline. B is duller and safer."
+    },
+    {
+      "pair_id": "CP-03",
+      "A": "Snowflake prep path in weeks 1 to 4 at 4 hours, Spark course in weeks 5 to 9 at 5 hours, Spark lab in week 10. Saturday morning blocks for the lab work.",
+      "B": "Snowflake prep path in weeks 1 to 4 at 4 hours, Spark course in weeks 5 to 9 at 5 hours, Spark lab in week 10. Weekday evening blocks, two sessions a week.",
+      "placeholder_preferred": "B",
+      "igor_preferred": null,
+      "note": "Identical except A schedules Saturdays, which the employee rejected last time. Memory must count."
+    },
+    {
+      "pair_id": "CP-04",
+      "A": "Close the Snowflake gap through the certification prep path (weeks 1 to 4, 4 hours) and the Spark gap through the course (weeks 5 to 9, 4 hours) and lab (week 10, 4 hours). Renewal credits logged by week 4. Pairing sessions continue throughout.",
+      "B": "Improve on Snowflake and Spark over the next quarter using recommended learning resources at a sustainable pace within the weekly limit, renewing the certification before it lapses.",
+      "placeholder_preferred": "A",
+      "igor_preferred": null,
+      "note": "B is grounded, in policy, and says nothing. This is the residual-risk case: a plan that passes every check and is still not advice."
+    },
+    {
+      "pair_id": "CP-05",
+      "A": "Weeks 1 to 3: Snowflake prep path at 5 hours to finish the renewal credits fast. Weeks 4 to 10: Spark course then lab at 5 hours. Weeks 11 to 12: SQL advanced course at 3 hours to stay sharp.",
+      "B": "Weeks 1 to 4: Snowflake prep path at 4 hours. Weeks 5 to 10: Spark course then lab at 5 hours. Weeks 11 to 12: consolidation, apply Spark on the next project with a reviewer at level 3 or above.",
+      "placeholder_preferred": "B",
+      "igor_preferred": null,
+      "note": "A spends the final weeks on SQL, where the employee is already above role level. B spends them on delivery work, which is how a gap actually closes."
+    },
+    {
+      "pair_id": "CP-06",
+      "A": "Weeks 1 to 4: Snowflake prep path, 4 hours, credits complete by week 4. Weeks 5 to 12: Spark course, lab, then a small Spark job on the next project with a level 3 reviewer, 5 hours a week.",
+      "B": "Weeks 1 to 4: Snowflake prep path, 4 hours, credits complete by week 4. Weeks 5 to 12: Spark course, lab, then a small Spark job on the next project with a level 3 reviewer, 4 hours a week, leaving an hour for the pairing sessions.",
+      "placeholder_preferred": "B",
+      "igor_preferred": null,
+      "note": "Near-identical. B makes room for the accepted pairing sessions explicitly. This is the close-call case; a reasonable colleague could go either way."
+    },
+    {
+      "pair_id": "CP-07",
+      "A": "Weeks 1 to 2: Snowflake hands-on lab, 5 hours, to get the practical side. Weeks 3 to 6: Snowflake prep path, 4 hours, credits complete week 6. Weeks 7 to 12: Spark course and lab, 5 hours.",
+      "B": "Weeks 1 to 4: Snowflake prep path, 4 hours, credits complete week 4 with a two-week margin before expiry. Weeks 5 to 6: Snowflake lab. Weeks 7 to 12: Spark course and lab, 5 hours.",
+      "placeholder_preferred": "B",
+      "igor_preferred": null,
+      "note": "A finishes credits in week 6, which is inside the 30-day window only if week 1 starts immediately. B leaves margin. Sequencing against a hard date matters more than pedagogy."
+    },
+    {
+      "pair_id": "CP-08",
+      "A": "Weeks 1 to 4: Snowflake prep path, 4 hours. Weeks 5 to 12: Spark course and lab, 5 hours. Then the Talend certification track in the following quarter to round out the role requirements.",
+      "B": "Weeks 1 to 4: Snowflake prep path, 4 hours. Weeks 5 to 12: Spark course and lab, 5 hours. Then revisit gaps against the role document at the next snapshot.",
+      "placeholder_preferred": "B",
+      "igor_preferred": null,
+      "note": "A re-proposes the Talend track the employee explicitly rejected. Talend is not a gap either."
+    },
+    {
+      "pair_id": "CP-09",
+      "A": "Weeks 1 to 4: Snowflake prep path at 4 hours, credits done by week 4. Weeks 5 to 8: Spark course at 5 hours. Weeks 9 to 10: Spark lab at 5 hours. Week 11: write up what changed in the Spark UI reading skill and share with the team.",
+      "B": "Weeks 1 to 4: Snowflake prep path at 4 hours, credits done by week 4. Weeks 5 to 8: Spark course at 5 hours. Weeks 9 to 10: Spark lab at 5 hours. Week 11: buffer.",
+      "placeholder_preferred": "A",
+      "igor_preferred": null,
+      "note": "Same plan; A ends with a concrete, checkable artifact. Specificity wins when nothing else separates them."
+    },
+    {
+      "pair_id": "CP-10",
+      "A": "Weeks 1 to 4: Snowflake prep path at 4 hours, credits complete by week 4. Weeks 5 to 10: Spark course then lab at 5 hours, with the pairing sessions continuing. Dates and credit figures as shown in the packet.",
+      "B": "Weeks 1 to 4: Snowflake prep path at 4 hours, credits complete by week 4. Weeks 5 to 10: Spark course then lab at 5 hours, with the pairing sessions continuing. This should put you in a strong position for the senior engineer conversation.",
+      "placeholder_preferred": "A",
+      "igor_preferred": null,
+      "note": "B drifts into promotion territory in its last sentence. The plan is the same; the drift is disqualifying."
+    }
+  ]
+}
