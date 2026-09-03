@@ -3,9 +3,9 @@
 ## Context packet (as rendered for the Planner and Critic)
 
 ```
-Employee: Priya Tanaka (E007), Data Engineer, Data Platforms.
+Employee: Igor Alcantara (E007), Data Engineer, Data Platforms.
 Data snapshot date: 2026-09-01. Weekly study limit: 5 hours.
-Profile summary: Priya Tanaka is a Data Engineer with a study budget of 5 hours. Against the role requirements the gaps are Apache Spark 2 -> 3; Snowflake 3 -> 4. SQL sits above the required level. Certifications: SnowPro Core expires 2026-10-01 (30 days), renewal credits 18/30; AWS Certified Cloud Practitioner expires 2027-11-15 (440 days), renewal credits 0/0.
+Profile summary: Igor Alcantara is a Data Engineer with a study budget of 5 hours. Against the role requirements the gaps are Apache Spark 2 -> 3; Snowflake 3 -> 4. SQL sits above the required level. Certifications: SnowPro Core expires 2026-10-01 (30 days), renewal credits 18/30; AWS Certified Cloud Practitioner expires 2027-11-15 (440 days), renewal credits 0/0.
 Skill gaps (current -> required):
   - Apache Spark: 2 -> 3
   - Snowflake: 3 -> 4
@@ -69,10 +69,10 @@ Full plan (strategy: deadline-first, variant: lab-first). Start on the snapshot 
 ### [A1] renewal_reminder: Renewal reminder: SnowPro Core
 
 ```
-To: Priya Tanaka
+To: Igor Alcantara
 Subject: SnowPro Core renewal due 2026-10-01
 
-Hi Priya Tanaka,
+Hi Igor Alcantara,
 
 Your SnowPro Core certification from Snowflake expires on 2026-10-01, which is 30 days from the current data snapshot. You have logged 18 of the 30 renewal credits, so 12 remain. The development plan puts the renewal work first so the credits are complete before the expiry date.
 
@@ -92,7 +92,7 @@ Notes: split as two sessions per week. Weekend blocks are not proposed.
 
 ```
 Personal development note (draft, not filed to any formal record)
-Employee: Priya Tanaka
+Employee: Igor Alcantara
 Snapshot: 2026-09-01
 
 Chosen plan:

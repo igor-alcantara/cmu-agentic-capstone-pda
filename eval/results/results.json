@@ -1,6 +1,6 @@
 {
   "mode": "mock",
-  "generated": "2026-09-01",
+  "generated": "2026-09-03",
   "employees": [
     "E001",
     "E002",
@@ -226,9 +226,9 @@
           "E011"
         ]
       },
-      "mean_latency_seconds": 0.039,
+      "mean_latency_seconds": 0.034,
       "mean_tool_calls": 8.0,
-      "mean_tokens_estimated": 23577,
+      "mean_tokens_estimated": 23578,
       "escalations_by_reason": {
         "conflicting_role_docs": 1,
         "external_side_effect": 12,

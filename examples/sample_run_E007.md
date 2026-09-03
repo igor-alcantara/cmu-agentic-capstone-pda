@@ -32,7 +32,7 @@ Rendered from the JSONL run log. Every observation is a typed summary; raw docum
 
 - Thought: Every gathering step has reported; seal the packet before synthesis.
 - Action: `freeze_packet`
-- Observation: packet frozen (hash 20d4a15c34382792); 2 gaps, 7 passages, 8 resources, 0 escalation(s) so far
+- Observation: packet frozen (hash 71353320da6eab06); 2 gaps, 7 passages, 8 resources, 0 escalation(s) so far
 
 **Step 6**
 
@@ -73,4 +73,4 @@ Rejected candidates and why:
 
 ## Budget
 
-`{'tool_calls': 8, 'tokens': 24465, 'elapsed_seconds': 0.03}`
+`{'tool_calls': 8, 'tokens': 24474, 'elapsed_seconds': 0.03}`

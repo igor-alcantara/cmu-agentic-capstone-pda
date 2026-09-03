@@ -30,7 +30,7 @@ def test_e007_gathers_recovers_and_freezes(tmp_path):
     assert p.precondition.status == "ok" and 4 <= len(p.chunks) <= 8
     assert p.resources and all(r.verified for r in p.resources)
     assert p.memory.rejected and "Saturdays" in p.memory.rejected[0]
-    assert "Priya Tanaka" in p.profile_summary and "Apache Spark 2 -> 3" in p.profile_summary
+    assert "Igor Alcantara" in p.profile_summary and "Apache Spark 2 -> 3" in p.profile_summary
     assert result.packet_hash and result.status == "complete"
     assert result.escalations == []  # the retry succeeded, so nothing escalates on a clean E007 run
     assert (tmp_path / "E007.jsonl").read_text().count("react_step") == 6

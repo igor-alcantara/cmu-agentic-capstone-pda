@@ -362,6 +362,8 @@ def build_db(rng: random.Random, db_path: Path) -> None:
     conn = sqlite3.connect(db_path)
     conn.executescript(SCHEMA)
     names = [f"{f} {l}" for f, l in zip(rng.sample(FIRST, 12), rng.sample(LAST, 12))]
+    # The demo protagonist carries the author's name over an invented profile.
+    names[[e[0] for e in EMPLOYEES].index("E007")] = "Igor Alcantara"
     for (eid, role, hours, request), name in zip(EMPLOYEES, names):
         conn.execute("INSERT INTO employees VALUES (?,?,?,?,?,?)",
                      (eid, name, role, DEPARTMENTS[role], hours, request))

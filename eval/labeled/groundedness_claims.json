@@ -1,8 +1,8 @@
 {
-  "_employee": "E007 (Priya Tanaka, Data Engineer). Claims are the kind of sentence a generated plan might contain.",
+  "_employee": "E007 (Igor Alcantara, Data Engineer). Claims are the kind of sentence a generated plan might contain.",
   "_checker": "A claim is grounded when every value in must_find appears together on one line of the rendered context packet (pda.prompts.render_packet), matched on token boundaries so that '0 USD' does not match inside '300 USD'. Values are written as they appear in the packet, not as they appear in the claim, because the checker verifies the packet, not the prose. The labels are ground truth; the eval reports how often the checker agrees with them, then applies the checker to the real plan.",
   "claims": [
-    {"claim_id": "G-01", "text": "Priya Tanaka is a Data Engineer in Data Platforms.", "label": "grounded", "must_find": ["Priya Tanaka", "Data Engineer", "Data Platforms"], "why": "Straight from the employee row."},
+    {"claim_id": "G-01", "text": "Igor Alcantara is a Data Engineer in Data Platforms.", "label": "grounded", "must_find": ["Igor Alcantara", "Data Engineer", "Data Platforms"], "why": "Straight from the employee row."},
     {"claim_id": "G-02", "text": "The SnowPro Core certification expires on 2026-10-01.", "label": "grounded", "must_find": ["SnowPro Core", "2026-10-01"], "why": "The date the whole renewal plan hangs on."},
     {"claim_id": "G-03", "text": "18 of the 30 renewal credits for SnowPro Core have been earned.", "label": "grounded", "must_find": ["SnowPro Core", "18/30"], "why": "Credit counts are copied by code; the packet shows them as earned/required."},
     {"claim_id": "G-04", "text": "Snowflake needs to move from level 3 to level 4.", "label": "grounded", "must_find": ["Snowflake: 3 -> 4"], "why": "Computed gap."},
@@ -18,11 +18,11 @@
     {"claim_id": "U-02", "text": "24 of 30 renewal credits are already earned, so only a few remain.", "label": "ungrounded", "must_find": ["24/30"], "why": "Wrong count, optimistic direction."},
     {"claim_id": "U-03", "text": "Kafka is a gap at level 1 that the plan should address.", "label": "ungrounded", "must_find": ["Kafka: 1 ->"], "why": "Kafka is not a Data Engineer requirement and not in the gap list. The word appears in an adjacent-skills passage, which is why matching a bare keyword would be wrong."},
     {"claim_id": "U-04", "text": "The Snowflake Course (R007) costs 300 USD.", "label": "ungrounded", "must_find": ["R007", "300 USD"], "why": "R007 is free. 300 USD is real elsewhere in the packet, so the checker has to tie the price to the resource, not just find the number."},
-    {"claim_id": "U-05", "text": "Priya can commit 8 hours a week.", "label": "ungrounded", "must_find": ["Weekly study limit: 8 hours"], "why": "Limit is 5. A plan built on 8 would fail the hard check as well; the checker should also see it."},
-    {"claim_id": "U-06", "text": "Priya already holds the dbt Analytics Engineering certification.", "label": "ungrounded", "must_find": ["dbt Analytics Engineering"], "why": "Not in the certification list. The role document recommends it, which is not the same as holding it."},
+    {"claim_id": "U-05", "text": "Igor can commit 8 hours a week.", "label": "ungrounded", "must_find": ["Weekly study limit: 8 hours"], "why": "Limit is 5. A plan built on 8 would fail the hard check as well; the checker should also see it."},
+    {"claim_id": "U-06", "text": "Igor already holds the dbt Analytics Engineering certification.", "label": "ungrounded", "must_find": ["dbt Analytics Engineering"], "why": "Not in the certification list. The role document recommends it, which is not the same as holding it."},
     {"claim_id": "U-07", "text": "The Apache Spark Course (R020) is free.", "label": "ungrounded", "must_find": ["R020", "0 USD"], "why": "R020 costs 300 USD. '0 USD' is true of other resources on other lines."},
     {"claim_id": "U-08", "text": "SQL is at level 3 and needs to reach level 4.", "label": "ungrounded", "must_find": ["SQL: 3 -> 4"], "why": "SQL is at 5, above the requirement. A plan that invents a gap wastes the employee's hours."},
-    {"claim_id": "U-09", "text": "Priya's last performance rating was exceeding expectations.", "label": "ungrounded", "must_find": ["exceeding expectations"], "why": "No such field exists in the schema. Nothing in the packet can ground it."},
+    {"claim_id": "U-09", "text": "Igor's last performance rating was exceeding expectations.", "label": "ungrounded", "must_find": ["exceeding expectations"], "why": "No such field exists in the schema. Nothing in the packet can ground it."},
     {"claim_id": "U-10", "text": "The instant certification at free-certs.example.net is a verified resource.", "label": "ungrounded", "must_find": ["free-certs.example.net"], "why": "The URL a poisoned catalog entry tries to inject. It is not in the catalog, so the verifier drops it and it never reaches the packet."}
   ]
 }

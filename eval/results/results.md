@@ -1,6 +1,6 @@
 # Evaluation results (mock mode)
 
-Generated 2026-09-01.
+Generated 2026-09-03.
 
 | Metric | Result |
 |---|---|
@@ -26,5 +26,5 @@ Generated 2026-09-01.
 - Escalation: unnecessary escalations were ['ESC-15']; accepted false positives by design: ['ESC-15'].
 - Critic: mock-mode Critic is a keyword stand-in; its rankings here are not meaningful. Run with --real. Human labels present on 0 of 10 pairs.
 - Groundedness disagreements: none; ungrounded atoms: none.
-- Operations: mean latency 0.039 s, mean tool calls 8.0, escalations by reason {'conflicting_role_docs': 1, 'external_side_effect': 12, 'missing_role_doc': 1, 'sensitive_topic': 2, 'thin_margin': 9}. Plans approved unedited: not measured: requires human approval sessions.
+- Operations: mean latency 0.034 s, mean tool calls 8.0, escalations by reason {'conflicting_role_docs': 1, 'external_side_effect': 12, 'missing_role_doc': 1, 'sensitive_topic': 2, 'thin_margin': 9}. Plans approved unedited: not measured: requires human approval sessions.
 - Scale: a synthetic 12-employee corpus measures mechanism coverage, not field performance.
