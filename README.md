@@ -4,6 +4,8 @@ A multi-agent personal assistant that builds a grounded, verified, approval-gate
 
 Capstone project for the CMU Agentic AI Program, by Igor Alcantara. Plain Python calling the Anthropic API directly; no agent framework. All data is synthetic.
 
+Presentation video (about 9 minutes): https://youtu.be/fSw6erJiq3c
+
 ![Architecture](docs/figure1_architecture.png)
 
 ## The four phases
